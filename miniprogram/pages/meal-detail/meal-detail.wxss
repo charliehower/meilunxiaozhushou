@@ -4,6 +4,17 @@
   background-color: #f5f5f5;
 }
 
+.detail-image-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #FFE0B2, #FFCC80);
+}
+
+.placeholder-icon {
+  font-size: 80rpx;
+}
+
 .detail-info {
   margin: 20rpx 24rpx;
 }

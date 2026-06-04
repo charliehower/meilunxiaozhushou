@@ -1,6 +1,9 @@
 <view class="container" wx:if="{{meal}}">
   <!-- 餐品图片 -->
-  <image class="detail-image" src="{{meal.image}}" mode="aspectFill" bindtap="previewImage"></image>
+  <image class="detail-image" src="{{meal.image}}" mode="aspectFill" wx:if="{{meal.image}}" bindtap="previewImage"></image>
+  <view class="detail-image detail-image-placeholder" wx:else>
+    <text class="placeholder-icon">🍽️</text>
+  </view>
 
   <!-- 餐品信息 -->
   <view class="detail-info card">
@@ -12,11 +15,11 @@
 
     <!-- 评分概览 -->
     <view class="score-overview">
-      <text class="big-score">{{meal.avgScore > 0 ? meal.avgScore : '-'}}</text>
+      <text class="big-score">{{meal.avgRating > 0 ? meal.avgRating : '-'}}</text>
       <view class="score-detail">
         <view class="stars">
           <text wx:for="{{5}}" wx:for-item="s" wx:key="*this"
-            class="{{s <= meal.avgScore ? 'star-gold' : 'star-gray'}}">★</text>
+            class="{{s <= meal.avgRating ? 'star-gold' : 'star-gray'}}">★</text>
         </view>
         <text class="score-count">{{meal.ratingCount}}人评分</text>
       </view>
@@ -28,9 +31,9 @@
     <text class="section-title">{{myRating ? '修改评分' : '为这道菜打分'}}</text>
     <view class="star-rating">
       <view wx:for="{{5}}" wx:for-item="s" wx:key="*this"
-        class="rate-star {{s <= tempScore ? 'active' : ''}}"
+        class="rate-star {{s < tempScore ? 'active' : ''}}"
         bindtap="setScore"
-        data-score="{{s}}">
+        data-score="{{s + 1}}">
         ★
       </view>
       <text class="temp-score-text" wx:if="{{tempScore > 0}}">{{tempScore}}分</text>

@@ -60,6 +60,10 @@ Page({
     }
   },
 
+  onImageError(e) {
+    // 图片加载失败时不做特殊处理，wxss 中设了默认背景色
+  },
+
   goDetail(e) {
     const id = e.currentTarget.dataset.id
     wx.navigateTo({ url: `/pages/meal-detail/meal-detail?id=${id}` })

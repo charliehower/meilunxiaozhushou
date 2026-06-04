@@ -17,15 +17,15 @@
 
   <view class="meal-list" wx:if="{{item.meals.length > 0}}">
     <view class="meal-card card" wx:for="{{item.meals}}" wx:for-item="meal" wx:key="_id" bindtap="goDetail" data-id="{{meal._id}}">
-      <image class="meal-image" src="{{meal.image}}" mode="aspectFill" lazy-load></image>
+      <image class="meal-image" src="{{meal.image || '/images/meal-placeholder.png'}}" mode="aspectFill" lazy-load binderror="onImageError"></image>
       <view class="meal-info">
         <text class="meal-name">{{meal.name}}</text>
         <view class="meal-rating">
           <view class="stars">
             <text wx:for="{{5}}" wx:for-item="star" wx:key="*this"
-              class="{{star <= meal.avgScore ? 'star-gold' : 'star-gray'}}">★</text>
+              class="{{star <= meal.avgRating ? 'star-gold' : 'star-gray'}}">★</text>
           </view>
-          <text class="rating-text">{{meal.avgScore > 0 ? meal.avgScore : '暂无评分'}}</text>
+          <text class="rating-text">{{meal.avgRating > 0 ? meal.avgRating : '暂无评分'}}</text>
           <text class="rating-count" wx:if="{{meal.ratingCount > 0}}">({{meal.ratingCount}}人评)</text>
         </view>
       </view>
