@@ -1,0 +1,38 @@
+<view class="page-header">
+  <view class="date-info">
+    <text class="date-text">{{todayStr}}</text>
+    <text class="weekday-text">{{weekdayStr}}</text>
+  </view>
+  <view class="admin-entry" wx:if="{{isAdmin}}" bindtap="goAdmin">
+    <text class="admin-icon">⚙️</text>
+    <text>管理</text>
+  </view>
+</view>
+
+<view class="period-section" wx:for="{{periodList}}" wx:key="key">
+  <view class="period-header">
+    <text class="period-title">{{item.label}}</text>
+    <text class="period-count">{{item.meals.length}}道菜</text>
+  </view>
+
+  <view class="meal-list" wx:if="{{item.meals.length > 0}}">
+    <view class="meal-card card" wx:for="{{item.meals}}" wx:for-item="meal" wx:key="_id" bindtap="goDetail" data-id="{{meal._id}}">
+      <image class="meal-image" src="{{meal.image}}" mode="aspectFill" lazy-load></image>
+      <view class="meal-info">
+        <text class="meal-name">{{meal.name}}</text>
+        <view class="meal-rating">
+          <view class="stars">
+            <text wx:for="{{5}}" wx:for-item="star" wx:key="*this"
+              class="{{star <= meal.avgScore ? 'star-gold' : 'star-gray'}}">★</text>
+          </view>
+          <text class="rating-text">{{meal.avgScore > 0 ? meal.avgScore : '暂无评分'}}</text>
+          <text class="rating-count" wx:if="{{meal.ratingCount > 0}}">({{meal.ratingCount}}人评)</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="empty-period" wx:else>
+    <text class="empty-text">暂无餐品</text>
+  </view>
+</view>

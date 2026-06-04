@@ -1,0 +1,176 @@
+.detail-image {
+  width: 100%;
+  height: 400rpx;
+  background-color: #f5f5f5;
+}
+
+.detail-info {
+  margin: 20rpx 24rpx;
+}
+
+.info-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10rpx;
+}
+
+.detail-name {
+  font-size: 38rpx;
+  font-weight: 600;
+  color: #333;
+}
+
+.detail-date {
+  font-size: 24rpx;
+  color: #999;
+  margin-bottom: 20rpx;
+}
+
+.score-overview {
+  display: flex;
+  align-items: center;
+  background: #FFF8F0;
+  border-radius: 12rpx;
+  padding: 20rpx;
+}
+
+.big-score {
+  font-size: 56rpx;
+  font-weight: 700;
+  color: #FF6B35;
+  margin-right: 20rpx;
+}
+
+.score-detail {
+  display: flex;
+  flex-direction: column;
+}
+
+.stars {
+  font-size: 30rpx;
+  margin-bottom: 4rpx;
+}
+
+.score-count {
+  font-size: 22rpx;
+  color: #999;
+}
+
+.my-rate {
+  margin: 0 24rpx 20rpx;
+}
+
+.section-title {
+  font-size: 30rpx;
+  font-weight: 600;
+  color: #5D4037;
+  margin-bottom: 20rpx;
+  display: block;
+}
+
+.star-rating {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.rate-star {
+  font-size: 56rpx;
+  color: #ddd;
+  margin-right: 10rpx;
+  transition: color 0.2s;
+}
+
+.rate-star.active {
+  color: #FFB800;
+}
+
+.temp-score-text {
+  font-size: 30rpx;
+  color: #FF6B35;
+  font-weight: 600;
+  margin-left: 16rpx;
+}
+
+.comment-input {
+  border-top: 1rpx solid #f0f0f0;
+  padding-top: 16rpx;
+}
+
+.comment-textarea {
+  width: 100%;
+  height: 120rpx;
+  background: #f9f9f9;
+  border-radius: 12rpx;
+  padding: 16rpx;
+  font-size: 28rpx;
+  box-sizing: border-box;
+}
+
+.comment-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12rpx;
+}
+
+.char-count {
+  font-size: 22rpx;
+  color: #ccc;
+}
+
+.submit-btn {
+  font-size: 26rpx;
+  padding: 12rpx 32rpx;
+}
+
+.comments {
+  margin: 0 24rpx 40rpx;
+}
+
+.comment-item {
+  padding: 16rpx 0;
+  border-bottom: 1rpx solid #f5f5f5;
+}
+
+.comment-item:last-child {
+  border-bottom: none;
+}
+
+.comment-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8rpx;
+}
+
+.comment-user {
+  display: flex;
+  align-items: center;
+}
+
+.comment-name {
+  font-size: 26rpx;
+  color: #666;
+  margin-right: 12rpx;
+}
+
+.comment-stars {
+  font-size: 22rpx;
+}
+
+.comment-star {
+  font-size: 22rpx;
+}
+
+.comment-time {
+  font-size: 22rpx;
+  color: #ccc;
+}
+
+.comment-content {
+  font-size: 28rpx;
+  color: #333;
+  line-height: 1.6;
+}

@@ -1,0 +1,31 @@
+<view class="container">
+  <view class="page-title card">
+    <text class="title-text">我的评分记录</text>
+    <text class="total-count">共 {{ratings.length}} 条</text>
+  </view>
+
+  <view class="rating-item card" wx:for="{{ratings}}" wx:key="_id" bindtap="goDetail" data-meal-id="{{item.mealId}}">
+    <view class="rating-top">
+      <view class="rating-meal-info">
+        <text class="meal-name">{{item.mealName || '未知餐品'}}</text>
+        <text class="meal-date">{{item.mealDate}} {{item.mealPeriod}}</text>
+      </view>
+      <view class="my-score">
+        <text class="score-num">{{item.score}}</text>
+        <text class="score-unit">分</text>
+      </view>
+    </view>
+    <view class="rating-stars">
+      <text wx:for="{{5}}" wx:for-item="s" wx:key="*this"
+        class="{{s <= item.score ? 'star-gold' : 'star-gray'}}">★</text>
+    </view>
+    <text class="rating-comment" wx:if="{{item.comment}}">{{item.comment}}</text>
+    <text class="rating-time">{{item.timeStr}}</text>
+  </view>
+
+  <view class="empty-state" wx:if="{{loaded && ratings.length === 0}}">
+    <text class="empty-icon">📝</text>
+    <text class="empty-text">还没有评分记录</text>
+    <text class="empty-hint">去给今天的餐品打个分吧</text>
+  </view>
+</view>

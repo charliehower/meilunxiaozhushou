@@ -1,0 +1,69 @@
+<view class="container">
+  <!-- 时间筛选 -->
+  <view class="filter card">
+    <view class="filter-options">
+      <view class="filter-opt {{filterDays === 7 ? 'active' : ''}}" bindtap="setFilter" data-days="7">近7天</view>
+      <view class="filter-opt {{filterDays === 30 ? 'active' : ''}}" bindtap="setFilter" data-days="30">近30天</view>
+    </view>
+  </view>
+
+  <!-- 总体统计 -->
+  <view class="overview card">
+    <text class="section-title">评分概览</text>
+    <view class="stats-grid">
+      <view class="stat-item">
+        <text class="stat-num">{{stats.totalMeals}}</text>
+        <text class="stat-label">餐品数</text>
+      </view>
+      <view class="stat-item">
+        <text class="stat-num">{{stats.totalRatings}}</text>
+        <text class="stat-label">评分数</text>
+      </view>
+      <view class="stat-item">
+        <text class="stat-num">{{stats.avgScore}}</text>
+        <text class="stat-label">平均分</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 餐品排行 -->
+  <view class="ranking card">
+    <text class="section-title">餐品评分排行</text>
+    <view class="rank-item" wx:for="{{rankList}}" wx:key="_id">
+      <text class="rank-index">{{index + 1}}</text>
+      <view class="rank-info">
+        <text class="rank-name">{{item.name}}</text>
+        <text class="rank-date">{{item.date}} {{item.periodLabel}}</text>
+      </view>
+      <view class="rank-score">
+        <text class="rank-score-num">{{item.avgScore > 0 ? item.avgScore : '-'}}</text>
+        <text class="rank-score-count">{{item.ratingCount}}人评</text>
+      </view>
+    </view>
+    <view class="empty-state" wx:if="{{rankList.length === 0}}">
+      <text class="empty-text">暂无评分数据</text>
+    </view>
+  </view>
+
+  <!-- 评论管理 -->
+  <view class="comments-manage card">
+    <text class="section-title">最新评论</text>
+    <view class="comment-m-item" wx:for="{{recentComments}}" wx:key="_id">
+      <view class="comment-m-header">
+        <view class="comment-m-user">
+          <text class="comment-m-name">{{item.nickName || '匿名'}}</text>
+          <view class="comment-m-stars">
+            <text wx:for="{{5}}" wx:for-item="s" wx:key="*this"
+              class="{{s <= item.score ? 'star-gold' : 'star-gray'}}">★</text>
+          </view>
+        </view>
+        <text class="comment-m-delete" bindtap="deleteComment" data-id="{{item._id}}">删除</text>
+      </view>
+      <text class="comment-m-meal">「{{item.mealName}}」</text>
+      <text class="comment-m-content" wx:if="{{item.comment}}">{{item.comment}}</text>
+    </view>
+    <view class="empty-state" wx:if="{{recentComments.length === 0}}">
+      <text class="empty-text">暂无评论</text>
+    </view>
+  </view>
+</view>

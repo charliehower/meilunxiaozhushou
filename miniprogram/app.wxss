@@ -1,0 +1,110 @@
+/* 全局样式 */
+page {
+  background-color: #FFF8F0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  color: #333;
+  font-size: 28rpx;
+  line-height: 1.6;
+}
+
+/* 通用容器 */
+.container {
+  padding: 24rpx;
+}
+
+/* 卡片样式 */
+.card {
+  background: #fff;
+  border-radius: 16rpx;
+  padding: 24rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.06);
+}
+
+/* 主色按钮 */
+.btn-primary {
+  background-color: #FF6B35;
+  color: #fff;
+  border: none;
+  border-radius: 12rpx;
+  padding: 20rpx 40rpx;
+  font-size: 30rpx;
+  font-weight: 500;
+}
+
+.btn-primary::after {
+  border: none;
+}
+
+/* 次要按钮 */
+.btn-secondary {
+  background-color: #fff;
+  color: #FF6B35;
+  border: 2rpx solid #FF6B35;
+  border-radius: 12rpx;
+  padding: 18rpx 38rpx;
+  font-size: 30rpx;
+}
+
+.btn-secondary::after {
+  border: none;
+}
+
+/* 分隔线 */
+.divider {
+  height: 1rpx;
+  background-color: #f0f0f0;
+  margin: 20rpx 0;
+}
+
+/* 评分星星颜色 */
+.star-gold {
+  color: #FFB800;
+}
+
+.star-gray {
+  color: #ddd;
+}
+
+/* 空状态 */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 100rpx 40rpx;
+  color: #999;
+}
+
+.empty-state .empty-icon {
+  font-size: 80rpx;
+  margin-bottom: 20rpx;
+}
+
+.empty-state .empty-text {
+  font-size: 28rpx;
+}
+
+/* 标签 */
+.tag {
+  display: inline-block;
+  padding: 4rpx 16rpx;
+  border-radius: 8rpx;
+  font-size: 22rpx;
+  margin-right: 10rpx;
+}
+
+.tag-breakfast {
+  background-color: #FFF3E0;
+  color: #E65100;
+}
+
+.tag-lunch {
+  background-color: #E8F5E9;
+  color: #2E7D32;
+}
+
+.tag-dinner {
+  background-color: #E3F2FD;
+  color: #1565C0;
+}

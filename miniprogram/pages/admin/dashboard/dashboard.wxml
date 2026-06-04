@@ -1,0 +1,56 @@
+<view class="container">
+  <!-- 顶部概览 -->
+  <view class="overview card">
+    <view class="overview-item">
+      <text class="overview-num">{{todayMealCount}}</text>
+      <text class="overview-label">今日餐品</text>
+    </view>
+    <view class="overview-divider"></view>
+    <view class="overview-item">
+      <text class="overview-num">{{todayRatingCount}}</text>
+      <text class="overview-label">今日评分</text>
+    </view>
+    <view class="overview-divider"></view>
+    <view class="overview-item">
+      <text class="overview-num">{{todayAvgScore}}</text>
+      <text class="overview-label">平均分</text>
+    </view>
+  </view>
+
+  <!-- 快捷操作 -->
+  <view class="actions card">
+    <view class="action-btn" bindtap="goAddMeal">
+      <text class="action-icon">➕</text>
+      <text class="action-text">添加餐品</text>
+    </view>
+    <view class="action-btn" bindtap="goStats">
+      <text class="action-icon">📊</text>
+      <text class="action-text">评分统计</text>
+    </view>
+  </view>
+
+  <!-- 今日餐品管理 -->
+  <view class="section-header">
+    <text class="section-title">今日餐品</text>
+  </view>
+
+  <view class="meal-manage-item card" wx:for="{{todayMeals}}" wx:key="_id">
+    <image class="manage-image" src="{{item.image}}" mode="aspectFill"></image>
+    <view class="manage-info">
+      <text class="manage-name">{{item.name}}</text>
+      <view class="manage-meta">
+        <view class="tag tag-{{item.period}}">{{item.periodLabel}}</view>
+        <text class="manage-score">{{item.avgScore > 0 ? item.avgScore + '分' : '暂无评分'}}</text>
+      </view>
+    </view>
+    <view class="manage-actions">
+      <text class="action-edit" bindtap="editMeal" data-id="{{item._id}}">编辑</text>
+      <text class="action-delete" bindtap="deleteMeal" data-id="{{item._id}}" data-image="{{item.image}}">删除</text>
+    </view>
+  </view>
+
+  <view class="empty-state" wx:if="{{todayMeals.length === 0}}">
+    <text class="empty-icon">🍽️</text>
+    <text class="empty-text">今日暂无餐品，快去添加吧</text>
+  </view>
+</view>

@@ -1,0 +1,44 @@
+<view class="container">
+  <!-- 日期选择 -->
+  <view class="date-picker card">
+    <view class="picker-row">
+      <text class="picker-label">选择日期</text>
+      <picker mode="date" value="{{selectedDate}}" bindchange="onDateChange">
+        <view class="picker-value">{{selectedDate || '请选择日期'}}</view>
+      </picker>
+    </view>
+    <view class="quick-dates">
+      <view class="quick-date {{item.active ? 'active' : ''}}" 
+        wx:for="{{quickDates}}" wx:key="label"
+        bindtap="selectQuickDate" data-offset="{{item.offset}}">
+        {{item.label}}
+      </view>
+    </view>
+  </view>
+
+  <!-- 历史餐品 -->
+  <view class="period-section" wx:for="{{periodList}}" wx:key="key">
+    <view class="period-header" wx:if="{{item.meals.length > 0}}">
+      <text class="period-title">{{item.label}}</text>
+    </view>
+    <view class="meal-card card" wx:for="{{item.meals}}" wx:for-item="meal" wx:key="_id"
+      bindtap="goDetail" data-id="{{meal._id}}">
+      <image class="meal-image" src="{{meal.image}}" mode="aspectFill" lazy-load></image>
+      <view class="meal-info">
+        <text class="meal-name">{{meal.name}}</text>
+        <view class="meal-rating">
+          <view class="stars">
+            <text wx:for="{{5}}" wx:for-item="s" wx:key="*this"
+              class="{{s <= meal.avgScore ? 'star-gold' : 'star-gray'}}">★</text>
+          </view>
+          <text class="rating-text">{{meal.avgScore > 0 ? meal.avgScore : '暂无'}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="empty-state" wx:if="{{loaded && hasNoMeals}}">
+    <text class="empty-icon">📅</text>
+    <text class="empty-text">该日暂无餐品记录</text>
+  </view>
+</view>

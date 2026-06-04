@@ -1,0 +1,72 @@
+<view class="container" wx:if="{{meal}}">
+  <!-- 餐品图片 -->
+  <image class="detail-image" src="{{meal.image}}" mode="aspectFill" bindtap="previewImage"></image>
+
+  <!-- 餐品信息 -->
+  <view class="detail-info card">
+    <view class="info-top">
+      <text class="detail-name">{{meal.name}}</text>
+      <view class="tag tag-{{meal.period}}">{{periodLabel}}</view>
+    </view>
+    <text class="detail-date">{{meal.date}}</text>
+
+    <!-- 评分概览 -->
+    <view class="score-overview">
+      <text class="big-score">{{meal.avgScore > 0 ? meal.avgScore : '-'}}</text>
+      <view class="score-detail">
+        <view class="stars">
+          <text wx:for="{{5}}" wx:for-item="s" wx:key="*this"
+            class="{{s <= meal.avgScore ? 'star-gold' : 'star-gray'}}">★</text>
+        </view>
+        <text class="score-count">{{meal.ratingCount}}人评分</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 我的评分 -->
+  <view class="my-rate card">
+    <text class="section-title">{{myRating ? '修改评分' : '为这道菜打分'}}</text>
+    <view class="star-rating">
+      <view wx:for="{{5}}" wx:for-item="s" wx:key="*this"
+        class="rate-star {{s <= tempScore ? 'active' : ''}}"
+        bindtap="setScore"
+        data-score="{{s}}">
+        ★
+      </view>
+      <text class="temp-score-text" wx:if="{{tempScore > 0}}">{{tempScore}}分</text>
+    </view>
+
+    <!-- 评论输入 -->
+    <view class="comment-input">
+      <textarea class="comment-textarea" placeholder="说点什么吧（可选）" 
+        value="{{comment}}" bindinput="onCommentInput" maxlength="200"></textarea>
+      <view class="comment-actions">
+        <text class="char-count">{{comment.length}}/200</text>
+        <button class="btn-primary submit-btn" bindtap="submitRating" disabled="{{tempScore === 0}}">
+          {{myRating ? '修改' : '提交'}}
+        </button>
+      </view>
+    </view>
+  </view>
+
+  <!-- 评论区 -->
+  <view class="comments card">
+    <text class="section-title">同学评价 ({{ratings.length}})</text>
+    <view class="comment-item" wx:for="{{ratings}}" wx:key="_id">
+      <view class="comment-header">
+        <view class="comment-user">
+          <text class="comment-name">{{item.nickName || '匿名同学'}}</text>
+          <view class="comment-stars">
+            <text wx:for="{{5}}" wx:for-item="s" wx:key="*this"
+              class="{{s <= item.score ? 'star-gold' : 'star-gray'}} comment-star">★</text>
+          </view>
+        </view>
+        <text class="comment-time">{{item.timeStr}}</text>
+      </view>
+      <text class="comment-content" wx:if="{{item.comment}}">{{item.comment}}</text>
+    </view>
+    <view class="empty-state" wx:if="{{ratings.length === 0}}">
+      <text class="empty-text">暂无评价，快来第一个打分吧</text>
+    </view>
+  </view>
+</view>

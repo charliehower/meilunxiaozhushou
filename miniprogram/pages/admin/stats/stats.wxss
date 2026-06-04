@@ -1,0 +1,163 @@
+.filter {
+  padding: 16rpx 24rpx;
+  margin-bottom: 20rpx;
+}
+
+.filter-options {
+  display: flex;
+  gap: 16rpx;
+}
+
+.filter-opt {
+  padding: 10rpx 24rpx;
+  border-radius: 20rpx;
+  font-size: 26rpx;
+  background: #f5f5f5;
+  color: #666;
+}
+
+.filter-opt.active {
+  background: #FF6B35;
+  color: #fff;
+}
+
+.overview {
+  margin-bottom: 20rpx;
+}
+
+.section-title {
+  font-size: 30rpx;
+  font-weight: 600;
+  color: #5D4037;
+  margin-bottom: 16rpx;
+  display: block;
+}
+
+.stats-grid {
+  display: flex;
+  justify-content: space-around;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stat-num {
+  font-size: 40rpx;
+  font-weight: 700;
+  color: #FF6B35;
+}
+
+.stat-label {
+  font-size: 24rpx;
+  color: #999;
+  margin-top: 4rpx;
+}
+
+.ranking {
+  margin-bottom: 20rpx;
+}
+
+.rank-item {
+  display: flex;
+  align-items: center;
+  padding: 16rpx 0;
+  border-bottom: 1rpx solid #f5f5f5;
+}
+
+.rank-item:last-child {
+  border-bottom: none;
+}
+
+.rank-index {
+  width: 50rpx;
+  font-size: 30rpx;
+  font-weight: 700;
+  color: #FF6B35;
+  text-align: center;
+}
+
+.rank-info {
+  flex: 1;
+  margin-left: 12rpx;
+}
+
+.rank-name {
+  font-size: 28rpx;
+  color: #333;
+  display: block;
+}
+
+.rank-date {
+  font-size: 22rpx;
+  color: #999;
+}
+
+.rank-score {
+  text-align: right;
+}
+
+.rank-score-num {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #FFB800;
+  display: block;
+}
+
+.rank-score-count {
+  font-size: 22rpx;
+  color: #999;
+}
+
+.comments-manage {
+  margin-bottom: 40rpx;
+}
+
+.comment-m-item {
+  padding: 16rpx 0;
+  border-bottom: 1rpx solid #f5f5f5;
+}
+
+.comment-m-item:last-child {
+  border-bottom: none;
+}
+
+.comment-m-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.comment-m-user {
+  display: flex;
+  align-items: center;
+  gap: 8rpx;
+}
+
+.comment-m-name {
+  font-size: 26rpx;
+  color: #666;
+}
+
+.comment-m-stars {
+  font-size: 22rpx;
+}
+
+.comment-m-delete {
+  font-size: 24rpx;
+  color: #e53935;
+}
+
+.comment-m-meal {
+  font-size: 24rpx;
+  color: #FF6B35;
+  display: block;
+  margin: 4rpx 0;
+}
+
+.comment-m-content {
+  font-size: 28rpx;
+  color: #333;
+}

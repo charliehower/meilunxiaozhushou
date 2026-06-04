@@ -1,0 +1,15 @@
+// miniprogram/images/ 目录说明
+// 
+// 此目录用于存放 TabBar 图标文件
+// 需要以下6个图标文件：
+//
+// tab-home.png        - 首页图标（未选中）
+// tab-home-active.png - 首页图标（选中，橙色）
+// tab-calendar.png        - 日历图标（未选中）
+// tab-calendar-active.png - 日历图标（选中，橙色）
+// tab-user.png        - 用户图标（未选中）
+// tab-user-active.png - 用户图标（选中，橙色）
+//
+// 图标规格：81x81px，PNG格式，透明背景
+// 未选中：灰色 #999999
+// 选中：橙色 #FF6B35
